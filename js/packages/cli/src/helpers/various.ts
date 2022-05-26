@@ -59,6 +59,7 @@ export async function getCandyMachineV2Config(
   goLiveDate: BN | null;
   uuid: string;
   arweaveJwk: string;
+  thirdPartySigner: web3.PublicKey | null,
 }> {
   if (configPath === undefined) {
     throw new Error('The configPath is undefined');
@@ -92,6 +93,7 @@ export async function getCandyMachineV2Config(
     goLiveDate,
     uuid,
     arweaveJwk,
+    thirdPartySigner,
   } = config;
 
   let wallet;
@@ -223,6 +225,7 @@ export async function getCandyMachineV2Config(
     goLiveDate: goLiveDate ? new BN(parseDate(goLiveDate)) : null,
     uuid,
     arweaveJwk,
+    thirdPartySigner: thirdPartySigner ? new web3.PublicKey(thirdPartySigner) : null,
   };
 }
 

@@ -84,6 +84,7 @@ export interface CandyMachine {
   data: CandyMachineData;
 }
 export interface CandyMachineData {
+  thirdPartySigner: web3.PublicKey | null;
   itemsAvailable: anchor.BN;
   uuid: null | string;
   symbol: string;

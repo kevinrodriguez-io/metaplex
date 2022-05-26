@@ -156,6 +156,7 @@ programCommand('upload')
       whitelistMintSettings,
       goLiveDate,
       uuid,
+      thirdPartySigner
     } = await getCandyMachineV2Config(walletKeyPair, anchorProgram, configPath);
 
     if (storage === StorageType.ArweaveSol && env !== 'mainnet-beta') {
@@ -269,6 +270,7 @@ programCommand('upload')
     log.info('started at: ' + startMs.toString());
     try {
       await uploadV2({
+        thirdPartySigner,
         files: supportedFiles,
         cacheName,
         env,

@@ -60,6 +60,7 @@ export async function uploadV2({
   collectionMintPubkey,
   setCollectionMint,
   rpcUrl,
+  thirdPartySigner,
 }: {
   files: string[];
   cacheName: string;
@@ -103,6 +104,7 @@ export async function uploadV2({
   collectionMintPubkey: null | PublicKey;
   setCollectionMint: boolean;
   rpcUrl: null | string;
+  thirdPartySigner: PublicKey | null;
 }): Promise<boolean> {
   const savedContent = loadCache(cacheName, env);
   const cacheContent = savedContent || {};
@@ -153,6 +155,7 @@ export async function uploadV2({
         treasuryWallet,
         splToken,
         {
+          thirdPartySigner,
           itemsAvailable: new BN(totalNFTs),
           uuid,
           symbol: firstAssetManifest.symbol,
